@@ -56,12 +56,43 @@ void levelOrderTraversal(node* root){
     }
 
 }
+void PreOrderTraversal(node* root){
+    if(root==NULL) return;
+    cout<<root->data<<" ";
+    PreOrderTraversal(root->left);
+    PreOrderTraversal(root->right);
+}
+void InOrderTraversal(node* root){
+    if(root==NULL) return ;
+
+    InOrderTraversal(root->left);
+    cout<<root->data<<" ";
+    InOrderTraversal(root->right);
+}
+
+void PostOrderTraversal(node* root){
+    if(root==NULL) return;
+    PostOrderTraversal(root->left);
+    PostOrderTraversal(root->right);
+    cout<<root->data<<" ";
+}
+
 int main(){
     node* root =NULL;
     root=buildTree(root);
     //1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1
     cout<<"nodes in the binary tree is \n";
+    cout<<"Level order traversal is"<<endl;
     levelOrderTraversal(root);
+    cout<<"Pre order traversal is ";
+    PreOrderTraversal(root);
+    cout<<endl;
+    cout<<"In order traversal is ";
+    InOrderTraversal(root);
+    cout<<endl;
+    cout<<"Post order traversal is ";
+    PostOrderTraversal(root);
+    cout<<endl;
 
 return 0;
 }
